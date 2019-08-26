@@ -14,11 +14,11 @@ void init(int n) {
     tot = 0;
     for(int i = 2; i <= n; ++i) {
         if(!vis[i]) {
-            pri[tot++] = i;
+            pri[++tot] = i;
             phi[i] = i - 1;
             mu[i] = -1;
         }
-        for(int j = 0; j < tot && i * pri[j] <= n; ++j) {
+        for(int j = 1; j <= tot && i * pri[j] <= n; ++j) {
             vis[i* pri[j]] = 1;
             if(i % pri[j] == 0) {
                 phi[i * pri[j]] = phi[i] * pri[j];
@@ -27,7 +27,7 @@ void init(int n) {
             }
             else {
                 phi[i * pri[j]] = phi[i] * (pri[j] - 1);
-                mu[i + pri[j]] = -mu[i];
+                mu[i * pri[j]] = -mu[i];
             }
         }
     }
