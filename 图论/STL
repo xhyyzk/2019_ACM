@@ -1,0 +1,2 @@
+next_permutation(a, a + n) : 求长度为n的一个排列的下一个排列，注意下标从0开始
+prev_permutation(a, a + n) :用法一样，求的是上一个排列
