@@ -7,7 +7,7 @@ const ll INF = (1ll << 60);
 int n , m , s , t;
 
 struct Node {
-    intd , pos;
+    int d , pos;
     bool operator < (const Node &r) const {
         return d > r.d;
     }
@@ -19,8 +19,8 @@ struct Edge {
 
 int dis[MAXN];
 int vis[MAXN];
-vector<Edge>edge[MAXN];
-priority_queue<Node>q;
+vector <Edge> edge[MAXN];
+priority_queue <Node> q;
 
 void add(int u, int v, int w) {
     edge[u].push_back(Edge{u, v, w});
@@ -30,7 +30,7 @@ void add(int u, int v, int w) {
 void Dijstra(int s) {
     while(!q.empty()) q.pop();
     memset(vis, 0, sizeof(vis));
-    for(int i = 0; i <= n + 1; i++) dis[i] = INF;
+    for(int i = 1; i <= n; i++) dis[i] = INF;
     dis[s] = 0;
     q.push(Node{0,s});
     while(!q.empty() ) {
