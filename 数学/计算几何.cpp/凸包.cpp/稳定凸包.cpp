@@ -21,7 +21,7 @@ const int inf = 0x3f3f3f3f;
 int t, n;
 
 struct Point {
-    int x, y, v, l;
+    int x, y;
     Point(){}
     Point(int _x, int _y){
         x = _x;y = _y;
