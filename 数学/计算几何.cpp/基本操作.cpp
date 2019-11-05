@@ -67,6 +67,23 @@ double dis(Point a, Point b) {
     Point p = b-a; return p.len ();
 }
 
+
+//判断两线段是否相交, (zoj 1010)
+int compare (double d) {
+    if(fabs(d) < eps) return 0;
+    return (d > 0) ? 1 : -1;
+}
+//s和t表示点的序号
+int intersect (int s, int t) {
+    int d1 = compare(cross(s, s+1, t));
+    int d2 = compare(cross(s, s+1, t+1));
+    int d3 = compare(cross(t, t+1, s));
+    int d4 = compare(cross(s+1, t, t+1));
+    if(d1*d2<0 && d3*d4 <0) return 1;
+    else return 0;
+}
+
+
 //************直线 线段
 struct Line {
     Point s, e;//直线的两个点
